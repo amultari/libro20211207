@@ -1,0 +1,45 @@
+<main class="flex-shrink-0">
+    <div class="container">
+
+        <!-- card di dettaglio-->
+        <div class='card' *ngIf="libro">
+            <div class='card-header'>
+                Visualizza dettaglio
+            </div>
+
+            <div class='card-body'>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Id:</dt>
+                    <dd class="col-sm-9">{{libro.id}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Titolo:</dt>
+                    <dd class="col-sm-9">{{libro.titolo}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Pagine:</dt>
+                    <dd class="col-sm-9">{{libro.pagine}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Autore:</dt>
+                    <dd class="col-sm-9">{{libro.autore}}</dd>
+                </dl>
+
+                <div class='card-footer'>
+                    <button class='btn btn-outline-warning' (click)="backToList()">Back</button>
+                </div>
+
+
+                <!-- end card body -->
+            </div>
+
+            <!-- end card -->
+        </div>
+
+        <!-- end container -->
+    </div>
+
+</main>

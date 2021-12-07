@@ -1,0 +1,84 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+            {{errorMessage}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class='card'>
+            <div class='card-header'>
+                <h5>Inserisci nuovo elemento</h5>
+            </div>
+            <div class='card-body'>
+
+                <form (ngSubmit)="save(libroForm)" #libroForm="ngForm" class="row g-3">
+
+                    
+                    <div class="col-md-6">
+                        <label>Titolo <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire il titolo" required minlength="2"
+                            id="titolo" name="titolo" [(ngModel)]="libro.titolo" #titoloVar="ngModel"
+                            [ngClass]="{'is-invalid': (titoloVar.touched || titoloVar.dirty) && !titoloVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="titoloVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="titoloVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Pagine <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" placeholder="Inserire numero pagine" required min="10"
+                            id="pagine" name="pagine" [(ngModel)]="libro.pagine" #pagineVar="ngModel"
+                            [ngClass]="{'is-invalid': (pagineVar.touched || pagineVar.dirty) && !pagineVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="pagineVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="pagineVar.errors?.['min']">
+                                Il campo deve contenere al minimo il valore 10.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Autore <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire nome Autore" required minlength="5"
+                            id="autore" name="autore" [(ngModel)]="libro.autore" #autoreVar="ngModel"
+                            [ngClass]="{'is-invalid': (autoreVar.touched || autoreVar.dirty) && !autoreVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="autoreVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="autoreVar.errors?.['minlength']">
+                                Il campo deve avere almeno 5 caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+
+
+                    <div class="col-12">
+                        <button type="submit" name="submit" value="submit" id="submit"
+                            class="btn btn-primary">Conferma</button>
+                    </div>
+
+
+                </form>
+
+
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <!-- end main -->
+</main>
