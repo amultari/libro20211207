@@ -22,6 +22,8 @@
                                 <th>Titolo</th>
                                 <th>Pagine</th>
                                 <th>Autore</th>
+                                <th>Data Pubblicazione</th>
+                                <th>Premiato</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +32,8 @@
                                 <td>{{libroItem.titolo}}</td>
                                 <td>{{libroItem.pagine}}</td>
                                 <td>{{libroItem.autore}}</td>
+                                <td>{{libroItem.dataPubblicazione | date:'dd/MM/yyyy'}}</td>
+                                <td>{{libroItem.premiato?'SI':'NO'}}</td>
                             </tr>
                         </tbody>
                     </table>

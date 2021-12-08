@@ -16,7 +16,7 @@
 
                 <form (ngSubmit)="save(libroForm)" #libroForm="ngForm" class="row g-3">
 
-                    
+
                     <div class="col-md-6">
                         <label>Titolo <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" placeholder="Inserire il titolo" required minlength="2"
@@ -46,11 +46,11 @@
                             </span>
                         </span>
                     </div>
-
+               
                     <div class="col-md-6">
                         <label>Autore <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Inserire nome Autore" required minlength="5"
-                            id="autore" name="autore" [(ngModel)]="libro.autore" #autoreVar="ngModel"
+                        <input type="text" class="form-control" placeholder="Inserire nome Autore" required
+                            minlength="5" id="autore" name="autore" [(ngModel)]="libro.autore" #autoreVar="ngModel"
                             [ngClass]="{'is-invalid': (autoreVar.touched || autoreVar.dirty) && !autoreVar.valid }">
                         <span class="invalid-feedback">
                             <span *ngIf="autoreVar.errors?.['required']">
@@ -62,6 +62,26 @@
                         </span>
                     </div>
 
+                    <div class=" col-md-3">
+                        <label>Data Pubblicazione<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" placeholder="dd/MM/yy" required id="dataPubblicazione"
+                            name="dataPubblicazione" title="formato : gg/mm/aaaa" [(ngModel)]="libro.dataPubblicazione"
+                            #dataPubblicazioneVar="ngModel"
+                            [ngClass]="{'is-invalid': (dataPubblicazioneVar.touched || dataPubblicazioneVar.dirty) && !dataPubblicazioneVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="!dataPubblicazioneVar.valid">
+                                Il campo deve essere correttamente valorizzato
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="premiatoId" name="premiato"
+                                [(ngModel)]="libro.premiato">
+                            <label class="form-check-label" for="premiatoId">Premiato</label>
+                        </div>
+                    </div>
 
 
                     <div class="col-12">
